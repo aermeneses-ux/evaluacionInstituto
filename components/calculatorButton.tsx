@@ -1,5 +1,6 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import * as Haptics from "expo-haptics";  
 
 interface Props {
   label: string;
@@ -7,7 +8,7 @@ interface Props {
   type?: "number" | "operator" | "function";
 }
 
-const CalcutorButton: React.FC<Props> = ({ label, onPress, type = "number" }) => {
+const CalculatorButton: React.FC<Props> = ({ label, onPress, type = "number" }) => {
   return (
     <TouchableOpacity
       style={[
@@ -15,7 +16,10 @@ const CalcutorButton: React.FC<Props> = ({ label, onPress, type = "number" }) =>
         type === "operator" && styles.operator,
         type === "function" && styles.function,
       ]}
-      onPress={onPress}
+      onPress={() => {
+        Haptics.selectionAsync(); 
+        onPress()
+      }}
     >
       <Text style={styles.text}>{label}</Text>
     </TouchableOpacity>
@@ -28,20 +32,20 @@ const styles = StyleSheet.create({
     margin: 5,
     padding: 20,
     borderRadius: 50,
-    backgroundColor: "#333",
+    backgroundColor: "#cba075",
     alignItems: "center",
     justifyContent: "center",
   },
   operator: {
-    backgroundColor: "orange",
+    backgroundColor: "#996b42",
   },
   function: {
-    backgroundColor: "gray",
+    backgroundColor: "#643c23",
   },
   text: {
-    color: "white",
+    color: "black",
     fontSize: 20,
   },
 });
 
-export default CalcutorButton;
+export default CalculatorButton;
