@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link  } from "expo-router";
-import { View, Text, StyleSheet, Alert, TouchableOpacity, SafeAreaView } from "react-native";
+import { View, Text, StyleSheet, Alert, SafeAreaView } from "react-native";
 import CalculatorButton from "../components/calculatorButton";
 import * as Haptics from "expo-haptics";
 

@@ -14,8 +14,8 @@ export interface Ticket {
   importancia: "baja" | "media" | "alta";
   fecha: string; // formato dd/mm/aaaa
   descripcion: string;
-  tipo: "fisico" | "virtual"; // nuevo campo
-  factura: "true" | "false";  // nuevo campo
+  tipo: "fisico" | "virtual"; 
+  factura: "true" | "false";  
 }
 
 interface TicketContextType {
